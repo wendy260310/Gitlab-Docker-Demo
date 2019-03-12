@@ -8,7 +8,7 @@ Read carefully about the section **What to know before you install** if you are 
 After installing docker on your machine,you can try some docker command like `docker info` or run a app on docker like `docker run hello-world`.You can get a [*Get Started*](https://docs.docker.com/get-started/) tutorial on the official websites
 ## 2. Run the Gitlab Image in Docker Engine
 &nbsp;&nbsp;Since this repo is a demo about setting up gitlab, we choose the free version of gitlab.Gitlab community provide us a official doc about how to run gitlab image in docker.
-> <span style="color:dark">sudo docker run --detach \
+> sudo docker run --detach \
    	--hostname gitlab.example.com \
    	--publish 443:443 --publish 80:80 --publish 22:22 \
    	--name gitlab \
@@ -16,7 +16,7 @@ After installing docker on your machine,you can try some docker command like `do
    	--volume /srv/gitlab/config:/etc/gitlab:Z \
    	--volume /srv/gitlab/logs:/var/log/gitlab:Z \
    	--volume /srv/gitlab/data:/var/opt/gitlab:Z \
-   	gitlab/gitlab-ce:latest</span>
+   	gitlab/gitlab-ce:latest
 
 &nbsp;&nbsp;Remember,local locations in volume option(*/srv/gitlab/config* and so on)
 depends on your machine,if you don't have these directories,you may change the command above or create these directories manually. &nbsp;
@@ -47,6 +47,10 @@ Pay attention to the directory */srv/gitlab-runner/config*,create it if necessar
 &nbsp;&nbsp;You want to access host machine's localhost in a docker container(gitlab runner),but `http://localhost` seems  not working on mac,so  use `docker.for.mac.host.internal` instead.You may find more info in [this question](https://stackoverflow.com/questions/31324981/how-to-access-host-port-from-docker-container/43541732).
 <br />
 &nbsp;&nbsp;Now you can go to [gitlab admin page](http://localhost/admin/runners) again to see if the runner has been registered or not.
+### 3.3 Build Customer Gitlab Runner Image
+&nbsp;&nbsp;If we use the official gitlab runner image,we need to login to the container to configure our gitlab runner.We can build our customer image to config gitlab runner when container start.
 ## 4.Set Up Private Docker Repository
-We need to set up our private docker repository if we want to build our app in one container and deploy our app in another container.
+&nbsp;&nbsp;We need to set up our private docker repository if we want to build our app in one container and deploy our app in another container.[this tutorial](https://docs.docker.com/registry/deploying/)shows us the command to set up a local docker repository
+> docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
+## 5.Your First Gitlab Application

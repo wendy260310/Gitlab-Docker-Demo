@@ -1,0 +1,1 @@
+gitlab-runner register -n  --url http://docker.for.mac.host.internal    --registration-token sfcHz6zkhH_TTtzmMDm1   --executor docker   --description "my customer runner"   --docker-image "docker:latest"   --docker-volumes /var/run/docker.sock:/var/run/docker.sock
