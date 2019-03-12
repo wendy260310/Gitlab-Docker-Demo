@@ -48,9 +48,14 @@ Pay attention to the directory */srv/gitlab-runner/config*,create it if necessar
 <br />
 &nbsp;&nbsp;Now you can go to [gitlab admin page](http://localhost/admin/runners) again to see if the runner has been registered or not.
 ### 3.3 Build Customer Gitlab Runner Image
-&nbsp;&nbsp;If we use the official gitlab runner image,we need to login to the container to configure our gitlab runner.We can build our customer image to config gitlab runner when container start.
+&nbsp;&nbsp;If we use the official gitlab runner image,we need to login to the container and configure our gitlab runner.We can build our customer image to config gitlab runner when container start.Go to [Gitlab Runner Customer Image](https://github.com/wendy260310/Gitlab-Docker-Demo/tree/master/Gitlab-Runner-Customer-Image) and build our gitlab runner image.When you run our customer image,you will find that a new runner was added to our gitlab in the [admin page](http://localhost/admin/runners).
+<br/>
+&nbsp;&nbsp;Don't forget to change the token in `entry.sh`
 ## 4.Set Up Private Docker Repository
-&nbsp;&nbsp;We need to set up our private docker repository if we want to build our app in one container and deploy our app in another container.[this tutorial](https://docs.docker.com/registry/deploying/)shows us the command to set up a local docker repository
+&nbsp;&nbsp;We need to set up our private docker repository if we want to build our app in one container and deploy our app in another container.[this tutorial](https://docs.docker.com/registry/deploying/) shows us the command to set up a local docker repository
 > docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 ## 5.Your First Gitlab Application
+Now,after steps above,we started to create a gitlab application,build and deploy it.
+### 5.1 create application
+&nbsp;&nbsp;Go to [new project](http://localhost/projects/new) and choose the `Create from template` tab,we choose spring app as our demo.
