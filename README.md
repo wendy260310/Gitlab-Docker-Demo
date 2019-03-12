@@ -9,7 +9,7 @@ After installing docker on your machine,you can try some docker command like `do
 ## 2. Run the Gitlab Image in Docker Engine
 &nbsp;&nbsp;Since this repo is a demo about setting up gitlab, we choose the free version of gitlab.Gitlab community provide us a official doc about how to run gitlab image in docker.
 > sudo docker run --detach \
-   	--hostname gitlab.example.com \
+   	--hostname docker.for.mac.host.internal \
    	--publish 443:443 --publish 80:80 --publish 22:22 \
    	--name gitlab \
    	--restart always \
