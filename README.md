@@ -1,11 +1,11 @@
 # Gitlab-Docker-Demo
-Demo about setting up gitlab on docker, include gitlab-ce , gitlab-runner, private docker repo , ci-di examples.
+&nbsp;&nbsp;Demo about setting up gitlab on docker, include gitlab-ce , gitlab-runner, private docker repo , ci-di examples.
 
 ## 1. Install Docker
 &nbsp;&nbsp;The docker community offers a full [guidance](https://docs.docker.com/install/) about installing docker on different os,you can follow these steps on the guidance.
 Read carefully about the section **What to know before you install** if you are mac or windows user.
 ### 1.1 Your First Docker Application
-After installing docker on your machine,you can try some docker command like `docker info` or run a app on docker like `docker run hello-world`.You can get a [*Get Started*](https://docs.docker.com/get-started/) tutorial on the official websites
+&nbsp;&nbsp;After installing docker on your machine,you can try some docker command like `docker info` or run a app on docker like `docker run hello-world`.You can get a [*Get Started*](https://docs.docker.com/get-started/) tutorial on the official websites
 ## 2. Run the Gitlab Image in Docker Engine
 &nbsp;&nbsp;Since this repo is a demo about setting up gitlab, we choose the free version of gitlab.Gitlab community provide us a official doc about how to run gitlab image in docker.
 > sudo docker run --detach \
@@ -25,14 +25,14 @@ depends on your machine,if you don't have these directories,you may change the c
 
 ## 3.Config Gitlab Runner
 ### 3.1 Run Gitlab Runner in Docker Engine
-if you want to set up ci pipeline,you should set up gitlab runner first.[this doc](https://docs.gitlab.com/runner/install/docker.html)
+&nbsp;&nbsp;If you want to set up ci pipeline,you should set up gitlab runner first.[this doc](https://docs.gitlab.com/runner/install/docker.html)
 tells us how to run gitlab runner in docker engine.
 > docker run -d --name gitlab-runner --restart always \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /srv/gitlab-runner/config:/etc/gitlab-runner:Z \
     gitlab/gitlab-runner:latest
     
-Pay attention to the directory */srv/gitlab-runner/config*,create it if necessary.
+&nbsp;&nbsp;Pay attention to the directory */srv/gitlab-runner/config*,create it if necessary.
 ### 3.2 Config Runner
 &nbsp;&nbsp;Open [gitlab admin page](http://localhost/admin/runners) to get url and token,you need these two to config your gitlab runner.
 <br />
@@ -69,4 +69,4 @@ Now,after steps above,we started to create a gitlab application,build and deploy
 <br />
 &nbsp;&nbsp;Go to the terminal of your laptop and run `docker container ls`,you will found out your application!
 ### 5.4 Deploy Stage Run Forever
-gitlab runner did not know whether your application start or not,see this [issue](https://gitlab.com/gitlab-com/support-forum/issues/1622),so I add `&` when start my spring boot application.In fact,if you do like what I did,your application did not start though your deploy stage finished.
+&nbsp;&nbsp;Gitlab runner did not know whether your application start or not,see this [issue](https://gitlab.com/gitlab-com/support-forum/issues/1622),so I add `&` when start my spring boot application.In fact,if you do like what I did,your application did not start though your deploy stage finished.
