@@ -59,3 +59,5 @@ Pay attention to the directory */srv/gitlab-runner/config*,create it if necessar
 Now,after steps above,we started to create a gitlab application,build and deploy it.
 ### 5.1 create application
 &nbsp;&nbsp;Go to [new project](http://localhost/projects/new) and choose the `Create from template` tab,we choose spring app as our demo.
+<br />
+&nbsp;&nbsp;After creating a new application,you can clone,update it like your repo in the github.
