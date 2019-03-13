@@ -57,14 +57,16 @@ Pay attention to the directory */srv/gitlab-runner/config*,create it if necessar
 
 ## 5.Your First Gitlab Application
 Now,after steps above,we started to create a gitlab application,build and deploy it.
-### 5.1 create application
+### 5.1 Create Application
 &nbsp;&nbsp;Go to [new project](http://localhost/projects/new) and choose the `Create from template` tab,we choose spring app as our demo.
 <br />
 &nbsp;&nbsp;After creating a new application,you can clone,update it like your repo in the github.[gitlab-app](https://github.com/wendy260310/Gitlab-Docker-Demo/tree/master/gitlab-app) is the app I use to test gitlab ci stage,you can copy this to your local gitlab repo.
 
 ### 5.2 Use Customer Maven Repo
 &nbsp;&nbsp;If you want to use your own maven repo when build your applications,you can add a `settings.xml` file in your application's root directory,and add parameter `--settings settings.xml` to your build command in `gitlab-ci.yml`,also you can change your `gitlab-ci.yml` like [this](https://stackoverflow.com/questions/33430487/how-to-use-gitlab-ci-to-build-a-java-maven-project/44951105#44951105),google more use cases about `before_script` stage.
-### 5.3 Where My Application was Deployed
+### 5.3 Where My Application  Deployed
 &nbsp;&nbsp;If you use docker to deploy your application,you may be confused about where did gitlab deploy my application,did it run docker in my gitlab runner container? Congratulations! you meet the problem *Docker In Docker*,you can google for this or see this [post](http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/).Pay attention to the options when we run `gitlab-runner`.
 <br />
 &nbsp;&nbsp;Go to the terminal of your laptop and run `docker container ls`,you will found out your application!
+### 5.4 Deploy Stage Run Forever
+gitlab runner did not know whether your application start or not,see this [issue](https://gitlab.com/gitlab-com/support-forum/issues/1622),so I add `&` when start my spring boot application.In fact,if you do like what I did,your application did not start though your deploy stage finished.
